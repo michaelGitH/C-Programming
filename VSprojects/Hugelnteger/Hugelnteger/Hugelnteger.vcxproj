@@ -19,10 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Huge.h" />
+    <ClInclude Include="..\..\..\9\HugeInteger\Huge.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HI.cpp" />
+    <ClCompile Include="..\..\..\9\HugeInteger\HI.cpp" />
+    <ClCompile Include="..\..\..\9\HugeInteger\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BE32B1F0-17C8-42FB-BAF6-EEE17AD89F37}</ProjectGuid>

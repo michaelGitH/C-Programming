@@ -15,13 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Huge.h">
+    <ClInclude Include="..\..\..\9\HugeInteger\Huge.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HI.cpp">
+    <ClCompile Include="..\..\..\9\HugeInteger\HI.cpp">
       <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\9\HugeInteger\main.cpp">
+      <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

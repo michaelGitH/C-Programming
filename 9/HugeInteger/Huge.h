@@ -4,14 +4,13 @@
 class HugeInteger {
 public:
 	HugeInteger();
-	void setHG();
-	void getHG();
 	void input();
 	void output();
-	void add();
+	void add( char[] );
 	void substract();
 private:
-	int hg[ 40 ];
+	int hi[ 41 ];
+	int stop;
 };
 
 
