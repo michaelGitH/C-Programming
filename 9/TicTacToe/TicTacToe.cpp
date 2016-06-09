@@ -18,15 +18,15 @@ void TicTacToe::play() {
 	while (finish == 0) {
 		cout << "Move of the " << player << " player: ";
 		cin >> choice;
-		if (choice[2] != '\0' || choice[0] < '0' || choice[0] > '1' || choice[1] < '0' || choice[1] > '1')
+		int row = (static_cast<int>(choice[0] - 48));
+		int column = (static_cast<int>(choice[1] - 48));
+		if (choice[2] != '\0' || choice[0] < '0' || choice[0] > '2' || 
+			choice[1] < '0' || choice[1] > '2' || xo[row][column] != 0)
 			cout << "Incorrect move, pleas try again!";
 		else {
-			int row = ( static_cast<int>(choice[0] - 48 ));
-			int column = ( static_cast<int>(choice[1] - 48 ));
 			xo[row][column] = player;
 			print();
 			wl = winOfLos();
-
 			if (wl == 1) {
 				cout << "Player 1 won!" << endl;
 				finish = 1;
@@ -51,22 +51,22 @@ void TicTacToe::play() {
 int TicTacToe::winOfLos() {
 	int player;
 	for (int i = 0; i < 3; i++) {		
-		if ( (xo[i][0] == xo[i][1] == xo[i][2] ) && xo[i][0] != 0) {
+		if ( (xo[i][0] == xo[i][1]) && (xo[i][0] == xo[i][2] ) && xo[i][0] != 0) {
 			player = xo[i][0];
 			return player;
 		}
 	}
 	for (int i = 0; i < 3; i++) {
-		if ( (xo[0][i] == xo[1][i] == xo[2][i] ) && xo[0][i] != 0) {
+		if ( (xo[0][i] == xo[1][i]) && (xo[0][i] == xo[2][i] ) && xo[0][i] != 0) {
 			player = xo[0][i];
 			return player;
 		}
 	}
-	if ( (xo[0][0] == xo[1][1] == xo[2][2]) && xo[0][0] != 0 ) {
+	if ( (xo[0][0] == xo[1][1]) && (xo[0][0] == xo[2][2]) && xo[0][0] != 0 ) {
 		player = xo[0][0];
 		return player;
 	}
-	else if ( (xo[2][0] == xo[1][1] == xo[0][2]) && xo[1][1] != 0) {
+	else if ( (xo[2][0] == xo[1][1]) && (xo[2][0] == xo[0][2]) && xo[1][1] != 0) {
 		player = xo[1][1];
 		return player;
 	}
@@ -80,15 +80,17 @@ int TicTacToe::winOfLos() {
 }
 
 void TicTacToe::print() {
+	cout << "----------" << endl;
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 			if (xo[i][j] == 0)
-				cout << "|" << i << j << "|";
+				cout << "|" << i << j;
 			else if (xo[i][j] == 1)
-				cout << "|X|";
+				cout << "|X ";
 			else if (xo[i][j] == 2)
-				cout << "|0|";
+				cout << "|0 ";
 		}
-		cout << endl;
+		cout << '|' << endl << "----------" << endl;
 	}
+	cout << endl;
 }
