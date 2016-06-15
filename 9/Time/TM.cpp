@@ -5,15 +5,19 @@
 using std::cout;
 using std::endl;
 
+
 #include "Time.h" // включить определение класса Time из Time.h
 
 int main()
 {
+
+	setlocale(LC_CTYPE, "");
 	Time t1; // все аргументы по умолчанию
 	Time t2( 2 ); // указаны часы; минуты и секунды по умолчанию
 	Time t3( 21, 34 ); // указаны часы и минуты; секунды по умолчанию
 	Time t4 ( 12, 25, 42 ); // указаны часы, минуты и секунды
 	Time t5( 27, 74, 99 ); // все значения недействительны
+	const Time noon( 12, 0, 0 );
 	
 	cout << "Constructed with:\n\nt1: all arguments defaulted\n ";
 	t1.printUniversal(); // 00:00:00
@@ -40,7 +44,9 @@ int main()
 	cout << "\n";
 	t5.printStandard(); // 12:00:00 AM
 	cout << endl;
+	
+	noon.printUniversal();
 
-
+	system("pause");
 	return 0;
 }

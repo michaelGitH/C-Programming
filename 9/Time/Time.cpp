@@ -8,6 +8,7 @@ using std::endl;
 using std::setfill;
 using std::setw;
 
+
 #include "Time.h" // включить определение класса Time из Time.h
 
 // Конструктор Time инициализирует каждый элемент данных нулем.
@@ -95,7 +96,7 @@ void Time::tick()
 }
 
 // Напечатать в формате всемирного времени (HH:MM:SS)
-void Time::printUniversal()
+void Time::printUniversal() const
 {
 	cout << setfill( '0' ) << setw( 2 ) << hour << ":"
 	<< setw( 2 ) << minute << ":" << setw( 2 ) << second << endl;
