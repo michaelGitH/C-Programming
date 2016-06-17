@@ -1,3 +1,4 @@
+#pragma warning(disable: 4996)
 #include<iostream>
 using std::cout;
 using std::endl;
@@ -6,6 +7,7 @@ using std::setw;
 using std::setfill;
 #include<cstring>
 using std::strcmp;
+using std::strncpy;
 
 #include "Date.h"
 
@@ -74,6 +76,15 @@ Date::Date(char *mm, int dd, int yy) {
 	print();
 	cout << endl;
 }
+Date::Date( char s ) :
+	year(sysYear()),
+	month(sysMonth()),
+	day(sysDay())
+{	
+	cout << "Date object constructor for date ";
+	print();
+	cout << endl;
+}
 
 void Date::print() const {
 	cout << month << '/' << day << '/' << year << '\n';
@@ -98,6 +109,41 @@ void Date::print2() const {
 }
 void Date::fullPrint() const {
 	print(); print1(); print2();
+}
+
+int Date::sysMonth() {
+	time_t t = time(0);
+	char *tPtr = ctime(&t);
+	char tmn[] = { tPtr[4], tPtr[5], tPtr[6], '\0' };
+	int mon;
+	char *mm[] = { "0","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+	for (int i = 1; i <= 12; i++) {
+		if (strcmp(tmn, mm[i]) == 0) {
+			mon = i;
+			i = 14;
+		}
+	}
+	return mon;
+}
+int Date::sysDay() {
+	time_t t = time(0);
+	char *tPtr = ctime(&t);
+	char dy[] = { tPtr[8], tPtr[9], '\0' };
+	int dd = (static_cast<int>(dy[0]) - 48) * 10 + (static_cast<int>(dy[1]) - 48);
+	return dd;
+}
+int Date::sysYear() {
+	time_t t = time(0);
+	char *tPtr = ctime(&t);
+	char y[5];
+	y[0] = tPtr[20];
+	y[1] = tPtr[21];
+	y[2] = tPtr[22];
+	y[3] = tPtr[23];
+	y[4] = '\0';
+	int yea = (static_cast<int>(y[0]) - 48) * 1000 + (static_cast<int>(y[1]) - 48) * 100
+		+ (static_cast<int>(y[2]) - 48) * 10 + (static_cast<int>(y[3]) - 48);
+	return yea;
 }
 
 // вывести объект Date, чтобы обозначить вызов деструктора 
