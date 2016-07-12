@@ -9,6 +9,11 @@ class String
 {
 	friend ostream &operator<< (ostream &, const String &);
 	friend istream &operator>> (istream &, String &);
+	friend const String operator+(const String&, const String&);
+	friend const String strCpy(const String &, const String&);
+	friend const String strnCpy(const String &, const String&, int);
+	friend const int strCmp(const String&, const String&);
+	friend char* strTok(const String&, const char*);
 public:
 	String(const char * = ""); // к-тор преобразования/по умолчанию 
 	String(const String &); // конструктор копии 
@@ -40,10 +45,14 @@ public:
 	char operator[](int) const; // операция индексации (rvalue) 
 	String operator()(int, int = 0) const; // возвратить подстроку 
 	int getLength() const; // возвратить длину строки 
+	const String strnCat(const String &right, int);
+	
 private:
 	int length; // длина строки (не считая завершающий нуль) 
 	char *sPtr; // указатель на начало представления строки 
 	void setString(const char *); // вспомогательная функция 
+	static char *token;
+	static int count;
 };
 
 #endif

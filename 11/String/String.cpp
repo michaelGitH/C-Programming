@@ -17,6 +17,9 @@ using std::exit;
 
 #include"String.h"
 
+char *String::token = NULL;
+int String::count = 0;
+
 // конструктор преобразования (и по умолчанию) char* в String 
 String::String(const char *s)
 	: length( ( s != 0 ) ? strlen( s ) : 0 )
@@ -52,6 +55,16 @@ const String &String::operator=(const String &right) {
 		cout << "Attemted assigment of a String to itself" << endl;
 
 	return *this;
+}
+
+const String operator+(const String &left, const String &right) {
+	const int tempL = left.length + right.length;
+	char *tempPtr = new char[tempL + 1];
+	strcpy(tempPtr, left.sPtr);
+	strcpy(tempPtr + left.length, right.sPtr);
+	String str(tempPtr);
+	delete[] tempPtr;
+	return str;
 }
 
 const String &String::operator+=(const String &right) {
@@ -144,6 +157,68 @@ void String::setString(const char *string2) {
 		strcpy(sPtr, string2); // литерал в объект 
 	else // если string2 - NULL, сделать this пустой строкой 
 		sPtr[0] = '\0'; // пустая строка
+}
+
+const String strCpy(const String &left,const String &right) {
+	int i = 0;
+	for (; i < left.getLength() && i < right.getLength(); i++) {
+		left.sPtr[i] = right.sPtr[i];
+	}
+	left.sPtr[ i + 1 ] = '\0';
+	return left;
+}
+
+const String strnCpy(const String &left, const String&right, int n) {
+	if (n < left.getLength()) {
+		int i = 0;
+		for (; i < n; i++) {
+			left.sPtr[i] = right.sPtr[i];
+		}
+		left.sPtr[n] = '\0';
+	}
+	else
+		cerr << "Error! Out of range. Copy was terminated!" << "\n";
+	return left;
+}
+
+const String String::strnCat(const String &right, int n) {
+	int null = 0;
+	for (int i = 0; i < length; i++)
+		if (sPtr[i] == '\0') {
+			null = i;
+			i = length;
+		}
+	for (int i = 0; null < length && i < right.length; null++, i++) 
+		sPtr[null] = right.sPtr[i];
+	sPtr[getLength()] = '\0';
+	return *this;
+}
+
+const int strCmp(const String &left, const String &right) {
+	if (left < right)
+		return -1;
+	else if (right < left)
+		return 1;
+	else
+		return 0;
+}
+
+char* strTok(const String &s, const char *tok) {
+	char *t;
+	if (s != "")
+		t = String::token = &s.sPtr[0];
+	else
+		t = String::token;
+	for ( ; *String::token != *tok && *String::token != '\0'; String::token++);
+	if (*String::token == *tok) {
+		*String::token = '\0';
+		*String::token++;
+		return t;
+	}
+	else if (t != String::token) 
+		return t;
+	else
+		return NULL;
 }
 
 // перегруженная операция вывода 

@@ -27,6 +27,9 @@ int main()
 		cout << "s3 is \"" << s3 << '\"';
 	}
 
+	s3 = s1 + s2;
+	cout << "\n\ns3 after s3 = s1 + s2 is " << s3 << endl;
+
 	// тестировать перегруженную операцию конкатенации строк 
 	cout << "\n\ns1 += s2 yields s1 = ";
 	s1 += s2; // протестировать перегруженную конкатенацию 
@@ -67,7 +70,22 @@ int main()
 
 	// тестировать выход индекса из диапазона 
 	cout << "\nAttempt to assign 'd' to s2[ 30 ] yields:" << endl;
-	s3[30] = 'd'; // ОШИБКА: индекс вне диапазона 
+	//s3[30] = 'd'; // ОШИБКА: индекс вне диапазона 
+
+	String s5 = "                                  ";
+	strnCpy(s5, s1, 5);
+	s5.strnCat( s1, 13);
+	cout << s5 << endl;
+	s3 = s1;
+	cout << "strCmp( s1, s3 ): " << strCmp(s1, s3) << endl;
+	cout << "strCmp( s5, s1 ): " << strCmp(s5, s1) << "\n\n";
+
+	cout << s1 << endl;
+	char *sPtr = strTok(s1, " ");
+	while (sPtr != NULL) {
+		cout << sPtr << "\n";
+		sPtr = strTok("", " ");
+	}
 
 	system("pause");
 	return 0;
