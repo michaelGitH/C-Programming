@@ -31,7 +31,7 @@ void ONPackage::setONPrice(double &onp) {
 }
 
 double ONPackage::calculateCost() const {
-	return Package::calculateCost() + oNPrice;
+	return Package::calculateCost() + Package::getWeight() * oNPrice;
 }
 
 ostream &operator<<(ostream& output, const ONPackage &right) {

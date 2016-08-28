@@ -16,6 +16,7 @@ public:
 	void setString(string&);
 	void setIndex(string&);
 	void setWeight(double&);
+	double getWeight() const;
 	void setPrice(double&);
 
 	double calculateCost() const;

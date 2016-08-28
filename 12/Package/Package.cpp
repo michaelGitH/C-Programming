@@ -79,6 +79,10 @@ void Package::setWeight(double &w) {
 	}
 }
 
+double Package::getWeight() const {
+	return weight;
+}
+
 void Package::setPrice(double &p) {
 	int i;
 	for (i = 0; i < 3; i++) {
