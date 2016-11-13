@@ -1,0 +1,208 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	font-family:Tahoma;
+}
+
+#header, #fpk-tsifry, #menu-icons, #napravleniya,
+#logo, #map, #footer{
+	width: 100%; /*Гибкая верстка*/
+	float:left;
+}
+
+#header{
+	background: #0F68AA;
+}
+
+#nngu{
+	float: left;
+	width: 25%;
+}
+
+#nngu img{
+	margin: 20px 0 20px 5%;
+	width: 70%;
+}
+
+.menu{
+	float: left;
+	width: 50%;
+	margin-top: 2%;
+	text-align: center;
+}
+
+.menu li{
+	display: inline-block;
+	padding: 15px 2%;
+	font-size: 120%;
+}
+
+.menu a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.menu-contacts{
+	float: right;
+	margin-top: 10px;
+}
+
+.menu-contacts li{
+	padding: 4px 40px;
+	margin: 20px 0;
+	color: #fff;
+	font-size: 20px;
+	list-style-type: none;
+}
+
+.phone{
+	background: url('img/phone.png') no-repeat;
+}
+
+.email{
+	background: url('img/email.png') no-repeat;
+}
+
+.fpk{
+	float: left;
+	width: 100%;
+	padding: 20px 0;
+	color: #0199fe;
+	font-weight: bold;
+	font-size: 140%;
+	text-align: center;
+}
+
+#fpk-tsifry li{
+	float: left;
+	width: 25%;
+	text-align: center;
+	list-style: none;
+	font-size: 22px;
+	margin: 30px 0;
+	line-height: 1,5em;
+}
+
+#fpk-tsifry span{
+	font-size: 160%;
+	color: #0074be;
+	font-weight: bold;
+}
+
+#menu-icons li{
+	display: inline-block;
+	padding: 1%;
+	text-align: center;
+}
+
+#menu-icons img{
+	display: block;
+	margin: 0 auto;
+	height: 50px;
+	border: none;
+}
+
+#menu-icons a{
+	color:#000;
+	text-decoration: none
+}
+
+#napravleniya li{
+	float: left;
+	width: 25%;
+	text-align: center;
+	list-style: none;
+	font-size: 22px;
+	padding:40px 0;
+	line-height: 1.5em;
+	background-color: #0F68AA;
+	color; #fff;
+}
+
+#logo {
+	float: left;
+	width: 80%;
+	margin: 0 15%;
+	font-weight: 600;
+	padding: 0 0 50px 0;
+}
+
+#logo h3{
+	font-weight: 100px;
+}
+
+#logo li{
+	padding: 100px 0;
+	display: inline-block;
+	padding: 0;
+	width: 18%;
+}
+
+#logo img{
+	display: block;
+	width: 50%;
+	border: none;
+}
+
+#map h4{
+	padding: 20px 15%;
+}
+
+#footer{
+	background: #0F68AA;
+}
+
+#nnguf{
+	float: left;
+	width: 25%;
+}
+
+#nnguf img{
+	margin: 20px 0 20px 5%;
+	width: 70%;
+}
+
+#footer ul{
+	display:block;
+	float: left;
+	margin: 2% 3% 0 3%;
+	color: #000;
+}
+
+#footer li{
+	display: block;
+	color: #000;
+	color: #fff;
+	font-size: 80%; 
+}
+
+#footer a{
+	color: #fff;
+	font-size: 120%;
+}
+
+#poisk {
+	display: block;
+	float: right;
+	margin: 2% 0 1% 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

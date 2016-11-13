@@ -1,0 +1,84 @@
+*{ /* * - универсальный селектор*/
+	margin: 0; /*отступы между блоками*/
+	padding: 0;/*внутренние отступы*/
+}
+
+header, section, footer, aside, nav {
+	display: block; /*для старых браузеров, не понимающих HTML5*/
+}
+
+/*√лавный( оберточный ) блок*/
+#main{
+	width: 1000px; /*ширина сайта*/
+	margin: 0px auto; /*отступы сверху и снизу*/
+	background-color:#c4c4c4; /*цвет фона - можно без колора*/
+	font: #115577;
+}
+
+header{
+	height:50px; /*высота шапки*/
+	padding:20px 300px; /*отступы внутри*/
+	background: #008899; /*заливка шапки*/
+	border: 5px solid #115577/*рамка шапки, 1 - толщина*/ /*solid - тип рамки - лини€*/ /*#000 - цвет*/
+}
+
+nav{
+	background: #0CF; /*цвет фона*/
+	padding: 5px 15px; /*внутр отступы*/
+}
+
+nav li{
+	display: inline-block; /*¬ыстраивает в горизонт. линию и делает блоками элементы списка*/
+	list-style: none; /*убирает кружочки*/
+	padding: 10px 20px; /*внутр отступы: верт., гориз.*/
+}
+
+section{
+	float: left; /*прикрепл€ет внутр. блок к левой границе внешнего блока*/
+	width: 800px;
+	height: 500px;
+	background: #e69afc; 
+	
+}
+
+section p{
+	font-size: 14px; /*Междустрочный интервал*/
+	padding: 10px; /*Отступы*/
+	line-height: 1.3em; /*Междустрочный интервал*/
+}
+
+aside{
+	float: left;
+	width: 200px;
+	height: 500px;
+	background: #FCF
+}
+
+footer{
+	clear: both; /*Отменяет ранее заданные параметры ширины*/
+	height: 100px;
+	text-align: center; /*выводит текст по центру*/
+	padding: 20px;
+	border-top: 2px solid #999; /*верхн€€ граница bottom - низ*/
+	background: #d6d6d6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
