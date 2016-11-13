@@ -78,6 +78,13 @@ void Employee::hh_s(int &w, int h) {
 		}
 		else count = 0;
 	}
+	--i;
+	if (count >= 4) {
+		if (((i - count - 2) >= 0 && schedule[i - count - 2] == 0) || ((i - count - 3) >= 0 && schedule[i - count - 3] == 0))
+			schedule[i - count] = h, --w;
+		else if ((i < days - 1 && schedule[i + 1] == 0) || (i < days - 2 && schedule[i + 2] == 0))
+			schedule[i - 1] = h, --w;
+	}
 	count = 0;
 	for (i = 0; i < days && w > 0; ++i) {
 		if (schedule[i] == 0) count++;
@@ -89,6 +96,13 @@ void Employee::hh_s(int &w, int h) {
 			count = 0;
 		}
 		else count = 0;
+	}
+	--i;
+	if (count >= 3) {
+		if (((i - count - 2) >= 0 && schedule[i - count - 2] == 0) || ((i - count - 3) >= 0 && schedule[i - count - 3] == 0))
+			schedule[i - count] = h, --w;
+		else if ((i < days - 1 && schedule[i + 1] == 0) || (i < days - 2 && schedule[i + 2] == 0))
+			schedule[i - 1] = h, --w;
 	}
 }
 
